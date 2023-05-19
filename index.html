@@ -32,20 +32,13 @@
     
     button {
       padding: 5px 10px;
+      margin: 10px;
     }
     
     .output {
       margin-top: 10px;
       font-weight: bold;
       text-align: center;
-      white-space: pre-wrap;
-    }
-    
-    @media screen and (max-width: 480px) {
-      input[type="text"], textarea {
-        width: 100%;
-        max-width: 100%;
-      }
     }
   </style>
 </head>
@@ -53,11 +46,12 @@
   <div class="container">
     <label for="amount">How much do you want to spend (in 1000)?</label>
     <input type="text" id="amount" />
+    <button onclick="calculate()">Calculate</button>
     <div class="output" id="spend-output"></div>
     <div class="output" id="weight-output"></div>
   </div>
   
-  <button onclick="calculate()">Calculate</button>
+  
 
   <script>
     function calculate() {
@@ -70,7 +64,7 @@
         var spendOutput = document.getElementById("spend-output");
         var weightOutput = document.getElementById("weight-output");
         
-        var spendMessage = "You cannot exceed " + (Math.round(spend) - 9000);
+        var spendMessage = "Subtotal (Without Tax) is " + (Math.round(spend) - 9000);
         spendOutput.textContent = spendMessage;
         
         var weight = (Math.round(spend) - 9000) / 320;
